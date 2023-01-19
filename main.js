@@ -16,7 +16,29 @@ const URL_API = ("https://ghibliapi.onrender.com/films")
     
      fetch(URL_API)
      .then(res => res.json())
-     .then(resJson => console.log(resJson));
+     .then((json)=> {
+        for (let e of json){
+            
+            const option = (e.title, e.title)
+            let dropdown = document.getElementById('title')
+   
+            let newOption = (e.title)
+    newOption.textContent = (e.title)
+    newOption.value = (e.id)
+    dropdown.append(option)
+   
+
+
+    dropdown.addEventListener('change', (event)=> {
+        event.preventDefault()
+
+    })
+    
+        }
+     });
+
+   
+
 
     
         
