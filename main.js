@@ -1,4 +1,4 @@
-console.log ('hello world')
+
 
 
 
@@ -7,7 +7,30 @@ console.log ('hello world')
 
 // To ensure Cypress tests work as expeded, add any code/functions that you would like to run on page load inside this function
 
-function run() {
+
+function run(URL_PAGE) {
+    
+    
+// const BASE_API =("https://ghibliapi.onrender.com")
+const URL_API = ("https://ghibliapi.onrender.com/films")
+    
+     fetch(URL_API)
+     .then(res => res.json())
+     .then(resJson => console.log(resJson));
+
+    
+        
+     
+    
+
+  
+
+  
+
+    
+    
+    
+
  // Add code you want to run on page load here
 }
 
