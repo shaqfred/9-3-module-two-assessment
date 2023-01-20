@@ -19,6 +19,7 @@ function run() {
 // const BASE_API =("https://ghibliapi.onrender.com")
 const URL_API = ("https://ghibliapi.onrender.com/films")
 const PEOPLE_API = ("https://ghibliapi.onrender.com/people")
+
     
      fetch(URL_API)
      .then(res => res.json())
@@ -64,7 +65,11 @@ const PEOPLE_API = ("https://ghibliapi.onrender.com/people")
       
         
         let peopleButton = document.getElementById('show-people')
-        let peopleNames = document.querySelector('ol')
+        
+    let peopleNames = document.querySelector('ol')
+    
+    
+        let ul = document.querySelector('ul')
     
      
       peopleButton.addEventListener("click", (event)=> {
@@ -76,11 +81,11 @@ const PEOPLE_API = ("https://ghibliapi.onrender.com/people")
         .then((response)=>response.json())
         .then((people)=> {
             
-            people.innerHTML = " "
+            people.innerHTML = "";
             for(let person of people) {
                 for(let film of person.films){
                     if(film === `${URL_API}${chosenID}`){
-                        let personList = document.createElement('li')
+                        let personList = document.createElement('li');
                         personList.textContent = person.name
                         peopleNames.append(personList)
                     }
@@ -92,47 +97,49 @@ const PEOPLE_API = ("https://ghibliapi.onrender.com/people")
       
 
       })
-            
-     
+
     })
-    // console.log(PEOPLE_API)
 }
 getReviews(json)
      })
-     .catch((error)=>{
+     .catch((error)=> {
         console.log(error);
      })
-     const displayData = (data)=> {
-        console.log(data);
-     }
-     const displayError = (error)=> {
-        console.log(error)
-     }
-
-     }
-    
      
      let reviewForm =document.querySelector('form')
-     let ul = document.querySelector('ul')
 
      function getReviews(json) {
         reviewForm.addEventListener('submit', (event)=> {
             event.preventDefault();
-            let reviewInput =document.getElementById('review').value;
+            let reviewInput =document.getElementById('reviews').value;
             if (dropdown.value === ""){
                 alert('Please select a movie first!');
             }else{
                 let movie =json.find((movie) => movie.id === dropdown.value);
                 let li = document.createElement('li');
                 li.innerHTML =`<strong>${movie.title}:</strong>${reviewInput}`;
-                ul.append(li)
-            }   
+                ul.append(li)     
+            }            
      
+    })
     
-        })
-    }
-           
+}
+
+
+   
+  
+
+  
+        
      
+     
+            }   
+        
+    
+      
+   
+           
+
 
   
    
